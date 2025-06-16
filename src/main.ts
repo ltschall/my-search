@@ -43,6 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Search Query:", query);
     const results = searchHandler(query);
     console.log("Results:", results);
-    // window.location.href = results;
+    window.location.href = results;
   });
 });
