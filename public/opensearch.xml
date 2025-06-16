@@ -1,0 +1,10 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>My Proxy</ShortName>
+  <Description>Search via My Proxy with bangs</Description>
+  <Url type="text/html" method="get" template="https://search.tschall.dev/?q={searchTerms}"/>
+  <Url type="application/x-suggestions+json" template="https://search.tschall.dev/suggestions?q={searchTerms}"/>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://search.tschall.dev/favicon.ico</Image>
+  <moz:SearchForm>https://search.tschall.dev/</moz:SearchForm>
+</OpenSearchDescription>
