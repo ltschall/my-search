@@ -1,5 +1,25 @@
 :root {
     --search-component-max-width: 600px;
+
+    /* Color Variables */
+    --color-bg-body: #1a1a1a;
+    --color-bg-input: #333;
+    --color-bg-section: #2a2a2a;
+    --color-bg-toggle: #444;
+    --color-bg-toggle-hover: #555;
+
+    --color-text-primary: #e0e0e0;
+    --color-text-white: white;
+    --color-text-secondary: #bbb;
+    --color-text-tertiary: #aaa;
+
+    --color-accent-green: #4CAF50;
+    --color-accent-blue: #88bbff; /* Used for bang-keys and URL span */
+
+    --color-button-primary: #007bff;
+
+    --color-border-default: #555; /* For input field */
+    --color-border-dark: #444;   /* For preview/accordion containers and dividers */
 }
 
 body {
@@ -9,7 +29,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #1a1a1a;
+    background-color: var(--color-bg-body);
     padding-top: 33vh;
     box-sizing: border-box;
 }
@@ -18,31 +38,30 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* Adjusted width logic: take 95vw up to the search component's max width, then capped at 1000px */
     width: min(var(--search-component-max-width), 95vw);
-    max-width: 1000px; /* Main container's absolute max width */
+    max-width: 1000px;
 }
 
 #searchForm {
     display: flex;
     gap: 10px;
-    width: 100%; /* Take full width of parent (main) */
-    max-width: var(--search-component-max-width); /* Cap at the variable width */
+    width: 100%;
+    max-width: var(--search-component-max-width);
 }
 
 #searchInput {
     padding: 10px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #e0e0e0;
+    border: 1px solid var(--color-border-default);
+    background-color: var(--color-bg-input);
+    color: var(--color-text-primary);
     font-size: 1em;
     flex-grow: 1;
 }
 
 button[type="submit"] {
     padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--color-button-primary);
+    color: var(--color-text-white);
     border: none;
     cursor: pointer;
 }
@@ -63,13 +82,13 @@ button[type="submit"] {
 #preview {
     margin-bottom: 30px;
     padding: 15px;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
+    background-color: var(--color-bg-section);
+    border: 1px solid var(--color-border-dark);
     border-radius: 8px;
-    color: #e0e0e0;
+    color: var(--color-text-primary);
     text-align: left;
-    width: 100%; /* Take full width of parent */
-    max-width: var(--search-component-max-width); /* Use global variable */
+    width: 100%;
+    max-width: var(--search-component-max-width);
     box-sizing: border-box;
     display: none;
     position: relative;
@@ -84,51 +103,50 @@ button[type="submit"] {
 }
 
 #preview strong {
-    color: #4CAF50;
+    color: var(--color-accent-green);
 }
 
 #preview .description {
     font-size: 0.9em;
-    color: #bbb;
+    color: var(--color-text-secondary);
 }
 
 #preview .url-preview {
     font-size: 0.8em;
-    color: #aaa;
+    color: var(--color-text-tertiary);
     word-break: break-all;
 }
 
 #preview .url-preview span {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #333;
+    background-color: var(--color-bg-input);
     padding: 2px 5px;
     border-radius: 3px;
-    color: #88bbff;
+    color: var(--color-accent-blue);
 }
 
 .accordion-toggle {
     padding: 10px 15px;
-    background-color: #444;
-    color: white;
+    background-color: var(--color-bg-toggle);
+    color: var(--color-text-white);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%; /* Take full width of parent */
-    max-width: var(--search-component-max-width); /* Use global variable */
+    width: 100%;
+    max-width: var(--search-component-max-width);
     text-align: center;
     transition: background-color 0.2s ease;
 }
 
 .accordion-toggle:hover {
-    background-color: #555;
+    background-color: var(--color-bg-toggle-hover);
 }
 
 .accordion-content {
     display: grid;
-    grid-template-columns: minmax(auto, 60px) 1fr; /* Ensures two columns; first column flexible up to 120px */
+    grid-template-columns: minmax(auto, 60px) 1fr;
     gap: 0;
-    width: 100%; /* Take full width of parent */
-    max-width: var(--search-component-max-width); /* Use global variable */
+    width: 100%;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
@@ -137,13 +155,13 @@ button[type="submit"] {
     transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
     box-sizing: border-box;
     pointer-events: none;
-    border: 1px solid #444;
+    border: 1px solid var(--color-border-dark);
     border-radius: 8px;
-    background-color: #2a2a2a;
+    background-color: var(--color-bg-section);
 }
 
 .accordion-content.expanded {
-    max-height: 1000px; /* Adjust if content exceeds this height */
+    max-height: 1000px;
     opacity: 1;
     padding: 0;
     pointer-events: all;
@@ -154,11 +172,11 @@ button[type="submit"] {
 }
 
 .provider-item .bang-key {
-    background-color: #333;
+    background-color: var(--color-bg-input);
     padding: 10px 15px;
-    color: #88bbff;
+    color: var(--color-accent-blue);
     font-family: 'Courier New', Courier, monospace;
-    border-right: 1px solid #444;
+    border-right: 1px solid var(--color-border-dark);
     text-align: right;
     display: flex;
     align-items: center;
@@ -169,14 +187,14 @@ button[type="submit"] {
     padding: 10px 15px;
     margin: 0;
     font-size: 0.9em;
-    color: #e0e0e0;
+    color: var(--color-text-primary);
     display: flex;
     align-items: center;
 }
 
 .provider-item:not(:last-of-type) .bang-key,
 .provider-item:not(:last-of-type) p {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--color-border-dark);
 }
 
 .accordion-content .provider-item:first-of-type .bang-key,
