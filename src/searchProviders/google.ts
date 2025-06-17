@@ -6,6 +6,7 @@ baseUrl.searchParams.set("udm", "14"); // no AI results
 
 export const google: SearchProvider = {
     name: "Google",
+    key: "!g",
     description: "Searches Google for the given query",
     matches: (query) => hasBang(query, "!g"),
     target: (query: string) => {
@@ -18,6 +19,7 @@ export const google: SearchProvider = {
 
 export const googleReddit: SearchProvider = {
     name: "Google Reddit",
+    key: "!gr",
     description: "Searches Google Reddit for the given query",
     matches: (query) => hasBang(query, "!gr"),
     target: (query: string) => {
@@ -30,6 +32,7 @@ export const googleReddit: SearchProvider = {
 
 export const googleImages: SearchProvider = {
     name: "Google Images",
+    key: "!gi",
     description: "Searches Google Images for the given query",
     matches: (query) => hasBang(query, "!gi"),
     target: (query: string) => {
@@ -44,6 +47,7 @@ export const googleImages: SearchProvider = {
 
 export const googleGifs: SearchProvider = {
     name: "Google GIFs",
+    key: "!gg",
     description: "Searches Google GIFs for the given query",
     matches: (query) => hasBang(query, "!gg"),
     target: (query: string) => {

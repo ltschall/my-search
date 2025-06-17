@@ -1,19 +1,35 @@
 import { providerChain, defaultProvider } from "./providers";
 
-
-function trim(str: string) {
-    return str.trim();
+export interface MatchedSearch {
+    url: string;
+    providerName: string;
+    providerDescription: string;
 }
 
 export function searchHandler(query: string) {
     const provider = providerChain.find((provider) => provider.matches(query));
 
-    let target: string | undefined;
     if (!provider) {
-        target = defaultProvider.target(query);
+        const defaultMatch: MatchedSearch = {
+            url: defaultProvider.target(query),
+            providerName: defaultProvider.name,
+            providerDescription: defaultProvider.description,
+        };
+        return defaultMatch
     } else {
-        target = provider.target(query);
+        const matchedSearch: MatchedSearch = {
+            url: provider.target(query),
+            providerName: provider.name,
+            providerDescription: provider.description,
+        };
+        return matchedSearch;
     }
+}
 
-    return trim(target);
+export function getProvidersHelp(): Map<string, string> {
+    const providerDescriptions = new Map<string, string>();
+    providerChain.forEach((provider) => {
+        providerDescriptions.set(provider.key, provider.description);
+    });
+    return providerDescriptions;
 }

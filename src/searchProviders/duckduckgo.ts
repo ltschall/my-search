@@ -5,6 +5,7 @@ const url = "https://www.duckduckgo.com/?q=%s";
 
 export const duckduckgo: SearchProvider = {
     name: "DuckDuckGo",
+    key: "!d, <default>",
     description: "Searches DuckDuckGo for the given query",
     matches: (query) => query.startsWith("!d"),
     target: (query: string) => {
