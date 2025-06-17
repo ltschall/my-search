@@ -4,7 +4,7 @@ import { searchHandler, getProvidersHelp } from './searchHandler';
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <main>
     <form id="searchForm">
-      <input type="search" id="searchInput" autofocus>
+      <input type="search" id="searchInput" placeholder="Search..." autofocus>
       <button type="submit">Search</button>
     </form>
     <div id="previewContainer">

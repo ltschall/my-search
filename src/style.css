@@ -1,28 +1,39 @@
 :root {
     --search-component-max-width: 600px;
 
-    /* Color Variables */
-    --color-bg-body: #1a1a1a;
-    --color-bg-input: #333;
-    --color-bg-section: #2a2a2a;
-    --color-bg-toggle: #444;
-    --color-bg-toggle-hover: #555;
+    --color-bg-body: #181825;
+    --color-bg-input: #1E1E2E;
+    --color-bg-section: #1E1E2E;
+    --color-bg-toggle: #313244;
+    --color-bg-toggle-hover: #45475A;
 
-    --color-text-primary: #e0e0e0;
-    --color-text-white: white;
-    --color-text-secondary: #bbb;
-    --color-text-tertiary: #aaa;
+    --color-text-primary: #CDD6F4;
+    --color-text-white: #CDD6F4;
+    --color-text-secondary: #BAC2DE;
+    --color-text-tertiary: #A6ADC8;
 
-    --color-accent-green: #4CAF50;
-    --color-accent-blue: #88bbff; /* Used for bang-keys and URL span */
+    --color-accent-green: #A6E3A1;
+    --color-accent-blue: #89B4FA;
 
-    --color-button-primary: #007bff;
+    --color-button-primary: #363653;
 
-    --color-border-default: #555; /* For input field */
-    --color-border-dark: #444;   /* For preview/accordion containers and dividers */
+    --color-border-default: #2c4fc6;
+    --color-border-dark: #2c4fc6;
+}
+
+*:focus {
+    outline: none;
+    box-shadow:
+        0 0 0 2px var(--color-bg-body),
+        0 0 0 4px rgba(137, 180, 250, 0.5),     
+        0 0 15px rgba(137, 180, 250, 0.5);
+    transition: 
+        box-shadow 0.2s ease-in-out,
+        background-color 0.1s ease;
 }
 
 body {
+    font: 'Segoe UI', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -68,10 +79,11 @@ button[type="submit"] {
 
 #previewContainer {
     margin-top: 20px;
+    width: 100%;
     box-sizing: border-box;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.3s ease-in-out;
+    transition: visibility 0s, opacity 0.15s ease-in-out;
 }
 
 #previewContainer.visible {
@@ -135,7 +147,6 @@ button[type="submit"] {
     width: 100%;
     max-width: var(--search-component-max-width);
     text-align: center;
-    transition: background-color 0.2s ease;
 }
 
 .accordion-toggle:hover {
@@ -152,7 +163,7 @@ button[type="submit"] {
     opacity: 0;
     padding: 0;
     margin-top: 15px;
-    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+    transition: max-height 0.2s ease-out, opacity 0.2s ease-out, padding 0.2s ease-out;
     box-sizing: border-box;
     pointer-events: none;
     border: 1px solid var(--color-border-dark);
