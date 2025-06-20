@@ -1,5 +1,7 @@
 import { google, googleImages, googleGifs, googleReddit } from "./searchProviders/google";
 import { duckduckgo } from "./searchProviders/duckduckgo";
+import { melvorWiki } from "./searchProviders/melvor-wiki";
+import { tarkovWiki } from "./searchProviders/tarkov-wiki";
 
 export interface SearchProvider {
     name: string;
@@ -14,6 +16,8 @@ export const providerChain: SearchProvider[] = [
     googleReddit,
     googleImages,
     googleGifs,
+    melvorWiki,
+    tarkovWiki,
 ];
 
 export const defaultProvider = duckduckgo;
