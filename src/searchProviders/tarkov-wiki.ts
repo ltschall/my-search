@@ -1,7 +1,7 @@
 import type { SearchProvider } from "../providers";
 import { hasBang, removeBang } from "../helpers";
 
-const baseUrl = new URL("https://wiki.tarkov.dev/index.php");
+const baseUrl = new URL("https://escapefromtarkov.fandom.com/wiki/Special:Search");
 
 export const tarkovWiki: SearchProvider = {
     name: "Tarkov Wiki",
