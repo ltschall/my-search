@@ -1,5 +1,6 @@
 :root {
     --search-component-max-width: 600px;
+    --content-width: min(var(--search-component-max-width), 95vw);
 
     --color-bg-body: #181825;
     --color-bg-input: #1E1E2E;
@@ -19,6 +20,17 @@
 
     --color-border-default: #2c4fc6;
     --color-border-dark: #2c4fc6;
+}
+
+a {
+    color: var(--color-accent-blue);
+    text-decoration: none;
+    padding: 0 0.1rem;
+    font-size: 1.1rem;
+}
+
+p {
+    color: var(--color-text-secondary);
 }
 
 *:focus {
@@ -49,7 +61,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: min(var(--search-component-max-width), 95vw);
+    width: var(--content-width);
     max-width: 1000px;
 }
 
@@ -57,7 +69,7 @@ main {
     display: flex;
     gap: 10px;
     width: 100%;
-    max-width: var(--search-component-max-width);
+    max-width: var(--content-width);
 }
 
 #searchInput {
@@ -78,7 +90,6 @@ button[type="submit"] {
 }
 
 #previewContainer {
-    margin-top: 20px;
     width: 100%;
     box-sizing: border-box;
     visibility: hidden;
@@ -100,7 +111,7 @@ button[type="submit"] {
     color: var(--color-text-primary);
     text-align: left;
     width: 100%;
-    max-width: var(--search-component-max-width);
+    max-width: var(--content-width);
     box-sizing: border-box;
     display: none;
     position: relative;
@@ -145,7 +156,7 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    max-width: var(--search-component-max-width);
+    max-width: var(--content-width);
     text-align: center;
 }
 
@@ -211,4 +222,19 @@ button[type="submit"] {
 .accordion-content .provider-item:first-of-type .bang-key,
 .accordion-content .provider-item:first-of-type p {
     margin-top: 0;
+}
+
+#footer {
+    color: var(--color-text-white);
+    position: absolute;
+    bottom: 0;
+    width: var(--content-width);
+}
+
+#footer #referral {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    padding-bottom: 4rem;
 }
