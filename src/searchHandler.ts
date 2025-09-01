@@ -7,18 +7,24 @@ export interface MatchedSearch {
 }
 
 export function searchHandler(query: string) {
-    const provider = providerChain.find((provider) => provider.matches(query));
+    let provider = providerChain.find((provider) => provider.matches(query));
+    let effectiveQuery = query;
+
+    if (!provider) {
+        effectiveQuery = query.replace("#", "!");
+        provider = providerChain.find((provider) => provider.matches(effectiveQuery));
+    }
 
     if (!provider) {
         const defaultMatch: MatchedSearch = {
-            url: defaultProvider.target(query),
+            url: defaultProvider.target(effectiveQuery),
             providerName: defaultProvider.name,
             providerDescription: defaultProvider.description,
         };
         return defaultMatch
     } else {
         const matchedSearch: MatchedSearch = {
-            url: provider.target(query),
+            url: provider.target(effectiveQuery),
             providerName: provider.name,
             providerDescription: provider.description,
         };
