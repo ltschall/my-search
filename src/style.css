@@ -25,9 +25,9 @@
     outline: none;
     box-shadow:
         0 0 0 2px var(--color-bg-body),
-        0 0 0 4px rgba(137, 180, 250, 0.5),     
+        0 0 0 4px rgba(137, 180, 250, 0.5),
         0 0 15px rgba(137, 180, 250, 0.5);
-    transition: 
+    transition:
         box-shadow 0.2s ease-in-out,
         background-color 0.1s ease;
 }
@@ -155,7 +155,7 @@ button[type="submit"] {
 
 .accordion-content {
     display: grid;
-    grid-template-columns: minmax(auto, 60px) 1fr;
+    grid-template-columns: minmax(auto, 5rem) 1fr;
     gap: 0;
     width: 100%;
     overflow: hidden;
