@@ -3,20 +3,22 @@ import { searchHandler, getProvidersHelp } from './searchHandler';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <main>
-    <form id="searchForm">
-      <input type="search" id="searchInput" placeholder="Search..." autofocus>
-      <button type="submit">Search</button>
-    </form>
-    <p>Hint: You can also use Hastags instead of Bangs, e.g. <code>'#g'</code>.</p>
-    <div id="previewContainer">
-      <div id="preview"></div>
+    <div id="searchContainer">
+      <form id="searchForm">
+        <input type="search" id="searchInput" placeholder="Search..." autofocus>
+        <button type="submit">Search</button>
+      </form>
+      <p>Hint: You can also use Hastags instead of Bangs, e.g. <code>'#g'</code>.</p>
+      <div id="previewContainer">
+        <div id="preview"></div>
+      </div>
+      <button id="toggleProviders" class="accordion-toggle">Show All Providers</button>
+      <div id="providersGridContainer" class="accordion-content"></div>
     </div>
-    <button id="toggleProviders" class="accordion-toggle">Show All Providers</button>
-    <div id="providersGridContainer" class="accordion-content"></div>
     <div id="footer">
       <div id="referral">
         <span>Made with <span title="AI">❤️</span> by <a href="https://github.com/ltschall" target="_blank">Louis</a></span>
-        <span>|</span>
+        <span class="separator">|</span>
         <span>Source code available on <a href="https://github.com/ltschall/my-search" target="_blank">GitHub</a></span>
       </div>
     </div>

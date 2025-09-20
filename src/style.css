@@ -63,6 +63,16 @@ main {
     align-items: flex-start;
     width: var(--content-width);
     max-width: 1000px;
+    justify-content: space-between;
+    height: 67vh;
+}
+
+#searchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: var(--content-width);
+    max-width: 1000px;
 }
 
 #searchForm {
@@ -224,10 +234,12 @@ button[type="submit"] {
     margin-top: 0;
 }
 
+#providersGridContainer {
+    margin-bottom: 16px;
+}
+
 #footer {
     color: var(--color-text-white);
-    position: absolute;
-    bottom: 0;
     width: var(--content-width);
 }
 
@@ -237,4 +249,16 @@ button[type="submit"] {
     gap: 16px;
     justify-content: center;
     padding-bottom: 4rem;
+}
+
+@media (max-width: 480px) {
+    #footer #referral {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .separator {
+        display: none;
+    }
 }
