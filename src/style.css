@@ -248,7 +248,15 @@ button[type="submit"] {
     flex-direction: row;
     gap: 16px;
     justify-content: center;
+    padding-bottom: 1rem;
+}
+
+#footer #buildDate {
+    display: flex;
+    justify-content: center;
     padding-bottom: 4rem;
+    color: var(--color-text-tertiary);
+    font-size: 0.9em;
 }
 
 @media (max-width: 480px) {

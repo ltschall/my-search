@@ -21,6 +21,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <span class="separator">|</span>
         <span>Source code available on <a href="https://github.com/ltschall/my-search" target="_blank">GitHub</a></span>
       </div>
+      <div id="buildDate">
+        <span>Build date: ${new Date(__BUILD_DATE__).toLocaleDateString()}</span>
+      </div>
     </div>
   </main>
 `

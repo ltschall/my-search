@@ -5,4 +5,7 @@ export default defineConfig({
         port: 3030,
         strictPort: true,
     },
+    define: {
+        __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+    },
 })
