@@ -3,6 +3,7 @@ import { duckduckgo } from "./searchProviders/duckduckgo";
 import { melvorWiki } from "./searchProviders/melvor-wiki";
 import { tarkovWiki } from "./searchProviders/tarkov-wiki";
 import { arcWiki } from "./searchProviders/arc-wiki";
+import { minecraftWiki } from "./searchProviders/minecraft-wiki";
 import { dhl } from "./searchProviders/dhl";
 
 export interface SearchProvider {
@@ -21,6 +22,7 @@ export const providerChain: SearchProvider[] = [
     melvorWiki,
     tarkovWiki,
     arcWiki,
+    minecraftWiki,
     dhl,
 ];
 
