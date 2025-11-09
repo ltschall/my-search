@@ -20,6 +20,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <span>Made with <span title="AI">❤️</span> by <a href="https://github.com/ltschall" target="_blank">Louis</a></span>
         <span class="separator">|</span>
         <span>Source code available on <a href="https://github.com/ltschall/my-search" target="_blank">GitHub</a></span>
+        <span class="separator">|</span>
+        <span>DDG Redirect <a href="/duckduckgo.user.js" target="_blank">Script</a></span>
       </div>
       <div id="buildDate">
         <span>Build date: ${new Date(__BUILD_DATE__).toLocaleDateString()}</span>

@@ -241,6 +241,7 @@ button[type="submit"] {
 #footer {
     color: var(--color-text-white);
     width: var(--content-width);
+    font-size: 0.85em;
 }
 
 #footer #referral {
@@ -260,6 +261,10 @@ button[type="submit"] {
 }
 
 @media (max-width: 480px) {
+    body {
+        padding-top: 20vh;
+    }
+
     #footer #referral {
         flex-direction: column;
         gap: 8px;
