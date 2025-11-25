@@ -11,7 +11,7 @@ export function searchHandler(query: string) {
     let effectiveQuery = query;
 
     if (!provider) {
-        effectiveQuery = query.replace("#", "!");
+        effectiveQuery = query.replace(/#/gi, "!");
         provider = providerChain.find((provider) => provider.matches(effectiveQuery));
     }
 
