@@ -84,6 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
     search(searchQuery);
   }
 
+  const searchParam = params.get('search');
+  if (searchParam) {
+    searchInput.value = searchParam;
+    // Trigger the input event to show preview
+    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
   searchInput.addEventListener('input', () => {
     const query = searchInput.value;
     if (query.trim() === '') {
