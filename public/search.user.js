@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Universal Search Redirect
 // @namespace    https://search.tschall.dev/
-// @version      2.1
+// @version      2.2
 // @description  Redirect searches from multiple search engines to search.tschall.dev
 // @author       Louis Tschall
 // @match        https://www.google.com/*
@@ -316,15 +316,6 @@
                     }
                     return;
                 }
-            }
-
-            // Fallback: if traversal fails (e.g., mobile), add directly after input field
-            const indicator = createIndicatorElement(searchInput);
-            const targetDiv = searchInput.parentElement
-            if (targetDiv?.firstChild) {
-                targetDiv.insertBefore(indicator, targetDiv.firstChild);
-            } else if (targetDiv) {
-                targetDiv.appendChild(indicator);
             }
         }
 
