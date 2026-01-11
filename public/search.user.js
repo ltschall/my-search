@@ -295,31 +295,32 @@
                 return;
             }
             
-            // Navigate: input -> parent -> next sibling (div) -> first element
-            const inputParent = searchInput.parentElement;
-            if (!inputParent) {
-                return;
-            }
-            
-            const targetDiv = inputParent.nextElementSibling;
-            if (!targetDiv) {
-                return;
-            }
-            
-            // Check if indicator already exists
-            const existingIndicator = targetDiv.querySelector('.search-redirect-indicator');
+            // Check if indicator already exists (check both in target div and after input)
+            const existingIndicator = document.querySelector('.search-redirect-indicator');
             if (existingIndicator) {
                 return;
             }
-
-            const indicator = createIndicatorElement(searchInput);
             
-            // Insert as first element of the target div
-            if (targetDiv.firstChild) {
-                targetDiv.insertBefore(indicator, targetDiv.firstChild);
-            } else {
-                targetDiv.appendChild(indicator);
+            // Navigate: input -> parent -> next sibling (div) -> first element
+            const inputParent = searchInput.parentElement;
+            if (inputParent) {
+                const targetDiv = inputParent.nextElementSibling;
+                if (targetDiv) {
+                    const indicator = createIndicatorElement(searchInput);
+                    
+                    // Insert as first element of the target div
+                    if (targetDiv.firstChild) {
+                        targetDiv.insertBefore(indicator, targetDiv.firstChild);
+                    } else {
+                        targetDiv.appendChild(indicator);
+                    }
+                    return;
+                }
             }
+            
+            // Fallback: if traversal fails (e.g., mobile), add directly after input field
+            const indicator = createIndicatorElement(searchInput);
+            searchInput.parentElement?.appendChild(indicator);
         }
 
         _findVisibleSearchInput() {
