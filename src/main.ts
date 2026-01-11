@@ -42,7 +42,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <span class="separator">·</span>
         <span>View on <a href="https://github.com/ltschall/my-search" target="_blank" rel="noopener">GitHub</a></span>
         <span class="separator">·</span>
-        <span><a href="/duckduckgo.user.js" target="_blank">DDG Redirect Script</a></span>
+        <span><a href="/search.user.js" target="_blank">Search Redirect Script</a></span>
       </div>
       <div id="buildDate">
         Built on ${new Date(__BUILD_DATE__).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}

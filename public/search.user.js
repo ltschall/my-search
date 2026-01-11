@@ -173,14 +173,16 @@
 
     /**
      * Create the indicator element
+     * @param {HTMLInputElement|HTMLTextAreaElement} searchInput - The search input element to get query from
      * @returns {HTMLDivElement} The indicator element
      */
-    function createIndicatorElement() {
+    function createIndicatorElement(searchInput) {
         addGlobalStyles();
 
         const indicator = document.createElement('div');
         indicator.className = 'search-redirect-indicator';
-        indicator.style.cssText = 'display: inline-flex; align-items: center; vertical-align: middle; pointer-events: none;';
+        indicator.style.cssText = 'display: inline-flex; align-items: center; vertical-align: middle; cursor: pointer;';
+        indicator.title = 'Click to search on search.tschall.dev';
 
         const svgContainer = document.createElement('div');
         svgContainer.className = 'search-redirect-svg';
@@ -188,6 +190,21 @@
         svgContainer.innerHTML = INDICATOR_SVG;
 
         indicator.appendChild(svgContainer);
+
+        // Make the indicator clickable to redirect to search.tschall.dev
+        indicator.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const query = searchInput ? searchInput.value : '';
+            if (query && query.trim() !== '') {
+                const encodedQuery = encodeURIComponent(query.trim());
+                window.location.href = `${REDIRECT_URL}?search=${encodedQuery}`;
+            } else {
+                window.location.href = REDIRECT_URL;
+            }
+        });
+
         return indicator;
     }
 
@@ -295,7 +312,7 @@
                 return;
             }
 
-            const indicator = createIndicatorElement();
+            const indicator = createIndicatorElement(searchInput);
             
             // Insert as first element of the target div
             if (targetDiv.firstChild) {
@@ -367,7 +384,7 @@
                 return;
             }
 
-            const indicator = createIndicatorElement();
+            const indicator = createIndicatorElement(searchInput);
             const inputParent = searchInput.parentElement;
             
             if (inputParent) {
