@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Universal Search Redirect
 // @namespace    https://search.tschall.dev/
-// @version      2.0
+// @version      2.1
 // @description  Redirect searches from multiple search engines to search.tschall.dev
 // @author       Louis Tschall
 // @match        https://www.google.com/*
